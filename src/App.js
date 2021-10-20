@@ -35,7 +35,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/movies/:movieId" component={MovieDetails} />
+        <Route path="/:movieId" component={MovieDetails} />
         <Route path="/movies" component={Movies} />
         <Route component={NotFound} />
       </Switch>
