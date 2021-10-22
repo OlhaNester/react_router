@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 import Axios from "axios";
+import { Route, NavLink, Switch } from "react-router-dom";
+import Cast from './Cast';
+import Reviews from './Reviews';
 
 export default class MovieDetails extends Component {
   state = {
@@ -20,6 +23,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     return (
       <div>
         <h1> Описание фильма {this.props.match.params.movieId}</h1>
+        <button type="button">Back</button>
         <h2> {this.state.movie.title}</h2>
         {this.state.movie.hasOwnProperty("release_date") && (
           <div> {this.state.movie.release_date.slice(0, 4)}</div>
@@ -36,6 +40,18 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
             ))}
           </ul>
         )}
+        <div>
+          <h3>Additional information</h3>
+          <ul>
+            <li> <NavLink className="NavLink" activeClassName="NavLink_active"
+              to=""> Cast</NavLink></li>
+            <li> <NavLink className="NavLink" activeClassName="NavLink_active" to="">Reviews</NavLink></li>
+          </ul>
+        </div>
+        <Switch>
+          <Route path="" component={Cast} />
+          <Route path="" component={Reviews}/>
+        </Switch>
       </div>
     );
   }
