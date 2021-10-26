@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
-import Cast from "./Cast";
+import Cast from "../Component/Cast";
 import Reviews from "./Reviews";
 
 export default class MovieDetails extends Component {
@@ -16,6 +16,7 @@ export default class MovieDetails extends Component {
     overview: null,
     genres: null,
     images: {},
+    cast: {},
 
   };
   async componentDidMount() {
@@ -90,7 +91,7 @@ https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304ab
           </ul>
         </div>
         <Switch>
-          <Route path="" component={Cast} />
+          <Route path={`${this.props.match.path}/cast`} render={props =>{return <Cast {...props}/>}} />
           <Route path="" component={Reviews} />
         </Switch> 
       </div>
