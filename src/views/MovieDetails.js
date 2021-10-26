@@ -17,7 +17,6 @@ export default class MovieDetails extends Component {
     genres: null,
     images: {},
     cast: {},
-
   };
   async componentDidMount() {
     const response = await Axios.get(`
@@ -28,30 +27,30 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     this.setState({ ...response.data });
 
     const responsePoster = await Axios.get(`
-https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304abcdd`);
-   
+    https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304abcdd`);
+
     this.setState({ ...responsePoster.data });
     console.log("qqqq");
     console.log(this.state.images.poster_sizes);
-    
-    
   }
-  
 
   render() {
     console.log("zzzz");
     console.log(this.state.images.poster_sizes);
     // if (this.state.images) {const sizePoster = this.state.images.poster_sizes.map(size => size.slice(0, 1)).find(size => size > 300);
     //console.log(sizePoster);}
-    
-     const linkPoster = `${this.state.images.secure_base_url}` + "w342" + `${this.state.poster_path}`;
+
+    const linkPoster =
+      `${this.state.images.secure_base_url}` +
+      "w342" +
+      `${this.state.poster_path}`;
     return (
       <div>
         <h1> Описание фильма {this.props.match.params.movieId}</h1>
         <button type="button">Back</button>
         <h2> {this.state.title}</h2>
 
-        {this.state.images && <img src={linkPoster} width="300" alt=""/>} 
+        {this.state.images && <img src={linkPoster} width="300" alt="" />}
         {this.state.release_date && (
           <div> {this.state.release_date.slice(0, 4)}</div>
         )}
@@ -91,9 +90,9 @@ https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304ab
           </ul>
         </div>
         <Switch>
-          <Route path={`${this.props.match.path}/cast`} render={props =>{return <Cast {...props}/>}} />
-          <Route path="" component={Reviews} />
-        </Switch> 
+          <Route path={`${this.props.match.path}/cast`} component={Cast} />
+          <Route path={`${this.props.match.path}/review`} component={Reviews} />
+        </Switch>
       </div>
     );
   }
