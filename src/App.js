@@ -4,6 +4,7 @@ import Movies from "./views/Movies";
 import NotFound from "./views/NotFound";
 import "./App.css";
 import MovieDetails from "./views/MovieDetails";
+import routes from './routes';
 
 //API_key = ee059677e8bdbcfa281a4ce6304abcdd;
 
@@ -16,7 +17,7 @@ function App() {
             className="NavLink"
             activeClassName="NavLink_active"
             exact
-            to="/"
+            to={routes.home}
           >
             Home
           </NavLink>
@@ -25,7 +26,7 @@ function App() {
           <NavLink
             className="NavLink"
             activeClassName="NavLink_active"
-            to="/movies"
+            to={routes.movies}
           >
             {" "}
             Movies
@@ -34,9 +35,9 @@ function App() {
       </ul>
 
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/movies/:movieId" component={MovieDetails} />
-        <Route path="/movies" component={Movies} />
+        <Route exact path={routes.home} component={Home} />
+        <Route path={routes.movieDetails} component={MovieDetails} />
+        <Route path={routes.movies} component={Movies} />
         <Route component={NotFound} />
       </Switch>
     </div>
