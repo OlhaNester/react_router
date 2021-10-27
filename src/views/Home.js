@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+
+import MovieList from "../Component/MovieList";
 
 export default class Home extends Component {
   state = {
@@ -17,15 +18,8 @@ https://api.themoviedb.org/3/trending/movie/day?api_key=ee059677e8bdbcfa281a4ce6
     return (
       <div>
         <h1>Trending today</h1>
-        <ul>
-          {this.state.movies.map((movie) => (
-            <li key={movie.id}>
-              <NavLink to={`${this.props.match.url}movies/${movie.id}`}>
-                {movie.title}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+
+        <MovieList movies={this.state.movies} />
       </div>
     );
   }

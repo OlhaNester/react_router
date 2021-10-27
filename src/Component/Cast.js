@@ -22,11 +22,7 @@ export default class Cast extends Component {
             {this.state.casts.map((cast) => (
               <li key={cast.id}>
                 <img
-                  src={
-                    "https://image.tmdb.org/t/p/" +
-                    "w185" +
-                    `${cast.profile_path}`
-                  }
+                  src={`https://image.tmdb.org/t/p/w185${cast.profile_path}`}
                   width="100"
                   alt=""
                 />

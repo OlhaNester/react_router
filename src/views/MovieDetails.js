@@ -47,7 +47,14 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     return (
       <div>
         <h1> Описание фильма {this.props.match.params.movieId}</h1>
-        <button type="button">Back</button>
+        <button
+          type="button"
+          onClick={() => {
+            this.props.history.push("/");
+          }}
+        >
+          Back
+        </button>
         <h2> {this.state.title}</h2>
 
         {this.state.images && <img src={linkPoster} width="300" alt="" />}
