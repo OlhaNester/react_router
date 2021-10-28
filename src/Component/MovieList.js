@@ -8,7 +8,7 @@ const MovieList = ({ movies, match, location }) => {
     <ul>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <NavLink to={`${match.url}movies/${movie.id}`}>
+          <NavLink to={{pathname: `movies/${movie.id}`, state: {from: location}}}>
             <MoviePreview
               poster={movie.poster_path}
               title={movie.title}

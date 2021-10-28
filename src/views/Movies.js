@@ -1,33 +1,26 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import MovieList from "../Component/MovieList";
 
 export default class Movies extends Component {
   state = {
     query: "",
     movies: [],
   };
+
+
   handleChange = (event) => {
     this.setState({ query: event.currentTarget.value });
   };
 
-  // handlSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const response = (this.state.query) => {return Axios.get(
-  //     `https://api.themoviedb.org/3/search/movie?api_key=ee059677e8bdbcfa281a4ce6304abcdd&language=en-US&query=${this.state.query}&page=1&include_adult=false`
-  //   );
-  //   this.setState({ movies: response.data.results });
-
-  //   // this.props.onSubmit(this.state.query);
-  //   this.setState({ query: "" });
-  // };
-
-  // async componentDidMount() {
-  //   const response = await Axios.get(
-  //     `https://api.themoviedb.org/3/search/movie?api_key=ee059677e8bdbcfa281a4ce6304abcdd&language=en-US&query=${this.state.query}&page=1&include_adult=false`
-  //   );
-  //   this.setState({ movies: response.data.results });
-  // }
+  handlSubmit = (event) => {
+    event.preventDefault();
+    
+    const response = Axios.get(
+  `https://api.themoviedb.org/3/search/movie?api_key=ee059677e8bdbcfa281a4ce6304abcdd&language=en-US&query=${this.state.query}&page=1&include_adult=false`
+    ).then(({ data }) => this.setState({movies: data.results}));
+      this.setState({ query: "" });
+  }
 
   render() {
     return (
@@ -46,13 +39,14 @@ export default class Movies extends Component {
             <span className="SearchForm-button-label">Search</span>
           </button>
         </form>
-        {this.state.movies && (
+        
           <ul>
-            {this.state.movies.map((movie) => (
+            {/* {this.state.movies.map((movie) => (
               <li key={movie.id}>{movie.title}</li>
-            ))}
+            ))} */}
+           <MovieList movies={this.state.movies} />
           </ul>
-        )}
+        
       </header>
     );
   }

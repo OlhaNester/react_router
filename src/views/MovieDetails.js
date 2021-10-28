@@ -4,6 +4,7 @@ import Axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
 import Cast from "../Component/Cast";
 import Reviews from "./Reviews";
+import routes from '../routes'
 
 export default class MovieDetails extends Component {
   state = {
@@ -34,11 +35,21 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     console.log(this.state.images.poster_sizes);
   }
 
+  hadleGoBack = () => {
+    if (this.props.location.state && this.props.location.state.from)
+    { return this.props.history.push(this.props.location.state.from);}//в state записано - откуда мы пришли
+    this.props.history.push(routes.movies);
+
+
+  // this.props.history.push(this.props.location?.state?.from|| routes.movies); //можно переписать так с новым оператором ?.
+  
+  
+  }
+
   render() {
     console.log("zzzz");
     console.log(this.state.images.poster_sizes);
-    // if (this.state.images) {const sizePoster = this.state.images.poster_sizes.map(size => size.slice(0, 1)).find(size => size > 300);
-    //console.log(sizePoster);}
+    
 
     const linkPoster =
       `${this.state.images.secure_base_url}` +
@@ -49,9 +60,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
         <h1> Описание фильма {this.props.match.params.movieId}</h1>
         <button
           type="button"
-          onClick={() => {
-            this.props.history.push("/");
-          }}
+          onClick={this.hadleGoBack}
         >
           Back
         </button>

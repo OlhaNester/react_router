@@ -1,10 +1,16 @@
+import { Suspense, lazy } from 'react';
 import { Route, NavLink, Switch } from "react-router-dom";
-import Home from "./views/Home";
-import Movies from "./views/Movies";
+// import Home from "./views/Home";
+// import Movies from "./views/Movies";
 import NotFound from "./views/NotFound";
 import "./App.css";
-import MovieDetails from "./views/MovieDetails";
+// import MovieDetails from "./views/MovieDetails";
 import routes from './routes';
+
+
+const Home = lazy(() => import('./views/Home.js' /* webpackChunkName: "home"*/),);
+const Movies = lazy(() => import('./views/Movies.js' /* webpackChunkName: "movies"*/),);
+const MovieDetails = lazy(() => import('./views/MovieDetails.js' /* webpackChunkName: "movieDetails"*/),);
 
 //API_key = ee059677e8bdbcfa281a4ce6304abcdd;
 
@@ -28,7 +34,6 @@ function App() {
             activeClassName="NavLink_active"
             to={routes.movies}
           >
-            {" "}
             Movies
           </NavLink>
         </li>
