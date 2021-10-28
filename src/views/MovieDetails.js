@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { Route, NavLink, Switch } from "react-router-dom";
 import Cast from "../Component/Cast";
-import Reviews from "./Reviews";
-import routes from '../routes'
+import Reviews from "../Component/Reviews";
+import routes from "../routes";
 
 export default class MovieDetails extends Component {
   state = {
@@ -36,20 +36,17 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
   }
 
   hadleGoBack = () => {
-    if (this.props.location.state && this.props.location.state.from)
-    { return this.props.history.push(this.props.location.state.from);}//в state записано - откуда мы пришли
-    this.props.history.push(routes.movies);
+    if (this.props.location.state && this.props.location.state.from) {
+      return this.props.history.push(this.props.location.state.from);
+    } //в state записано - откуда мы пришли
+    this.props.history.push(routes.home);
 
-
-  // this.props.history.push(this.props.location?.state?.from|| routes.movies); //можно переписать так с новым оператором ?.
-  
-  
-  }
+    // this.props.history.push(this.props.location?.state?.from|| routes.movies); //можно переписать так с новым оператором ?.
+  };
 
   render() {
     console.log("zzzz");
     console.log(this.state.images.poster_sizes);
-    
 
     const linkPoster =
       `${this.state.images.secure_base_url}` +
@@ -58,10 +55,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     return (
       <div>
         <h1> Описание фильма {this.props.match.params.movieId}</h1>
-        <button
-          type="button"
-          onClick={this.hadleGoBack}
-        >
+        <button type="button" onClick={this.hadleGoBack}>
           Back
         </button>
         <h2> {this.state.title}</h2>

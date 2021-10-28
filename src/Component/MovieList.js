@@ -3,12 +3,14 @@ import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import MoviePreview from "./MoviePreview";
 
-const MovieList = ({ movies, match, location }) => {
+const MovieList = ({ movies, location }) => {
   return (
     <ul>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <NavLink to={{pathname: `movies/${movie.id}`, state: {from: location}}}>
+          <NavLink
+            to={{ pathname: `movies/${movie.id}`, state: { from: location } }}
+          >
             <MoviePreview
               poster={movie.poster_path}
               title={movie.title}

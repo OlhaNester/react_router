@@ -16,7 +16,7 @@ export default class Reviews extends Component {
     console.log(this.state.reviews);
     return (
       <div>
-        {this.state.reviews && (
+        {this.state.reviews.length > 0 ? (
           <ul>
             {this.state.reviews.map((review) => (
               <li key={review.author}>
@@ -25,6 +25,8 @@ export default class Reviews extends Component {
               </li>
             ))}
           </ul>
+        ) : (
+          "We don't have any reviews for this movie"
         )}
       </div>
     );
