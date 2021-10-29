@@ -24,22 +24,20 @@ export default class MovieDetails extends Component {
 
 https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee059677e8bdbcfa281a4ce6304abcdd&language=en-US`);
 
-    //console.log(response.data);
-    this.setState({ ...response.data });
+        this.setState({ ...response.data });
 
     const responsePoster = await Axios.get(`
     https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304abcdd`);
 
     this.setState({ ...responsePoster.data });
-    console.log("qqqq");
-    console.log(this.state.images.poster_sizes);
+       console.log(this.state.images.poster_sizes);
   }
 
   hadleGoBack = () => {
     if (this.props.location.state && this.props.location.state.from) {
       return this.props.history.push(this.props.location.state.from);
     } //в state записано - откуда мы пришли
-    this.props.history.push(routes.home);
+    // this.props.history.push('/');
 
     // this.props.history.push(this.props.location?.state?.from|| routes.movies); //можно переписать так с новым оператором ?.
   };
