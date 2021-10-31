@@ -20,17 +20,18 @@ export default class MovieDetails extends Component {
     cast: {},
   };
   async componentDidMount() {
+    console.log("dddd");
     const response = await Axios.get(`
 
 https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee059677e8bdbcfa281a4ce6304abcdd&language=en-US`);
 
-        this.setState({ ...response.data });
+    this.setState({ ...response.data });
 
     const responsePoster = await Axios.get(`
     https://api.themoviedb.org/3/configuration?api_key=ee059677e8bdbcfa281a4ce6304abcdd`);
 
     this.setState({ ...responsePoster.data });
-       console.log(this.state.images.poster_sizes);
+    console.log(this.state.images.poster_sizes);
   }
 
   hadleGoBack = () => {
