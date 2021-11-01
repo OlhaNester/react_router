@@ -5,6 +5,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import Cast from "../Component/Cast";
 import Reviews from "../Component/Reviews";
 import routes from "../routes";
+import defaultMovie from '../Component/defaultMovie.jpg';
 
 export default class MovieDetails extends Component {
   state = {
@@ -59,7 +60,8 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
         </button>
         <h2> {this.state.title}</h2>
 
-        {this.state.images && <img src={linkPoster} width="300" alt="" />}
+        {this.state.poster_path ? (<img src={linkPoster} width="300" alt="" />):(<img src={defaultMovie} width="300" alt="" />)}
+       {/* <img src={linkPoster} width="300" alt="" /> */}
         {this.state.release_date && (
           <div> {this.state.release_date.slice(0, 4)}</div>
         )}
@@ -82,7 +84,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
               <NavLink
                 className="NavLink"
                 activeClassName="NavLink_active"
-                to={`/movies/${this.state.id}/cast`}
+                to={{ pathname : `/movies/${this.state.id}/cast`, state: {from: this.props.location},}}
               >
                 Cast
               </NavLink>
@@ -91,7 +93,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
               <NavLink
                 className="NavLink"
                 activeClassName="NavLink_active"
-                to={`/movies/${this.state.id}/review`}
+                to={{pathname:`/movies/${this.state.id}/review`, state:{from: this.props.location},}}
               >
                 Reviews
               </NavLink>
@@ -106,3 +108,7 @@ https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=ee
     );
   }
 }
+
+MovieDetails.defaultProps = {
+  linkPoster: defaultMovie,
+};
