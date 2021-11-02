@@ -18,7 +18,7 @@ export default class Cast extends Component {
 
   render() {
         return (
-      <div className={styles.wrapper}>
+      <div >
         {(this.state.casts.length>0) ? (
           <ul className={styles.list}>
             {this.state.casts.map((cast) => (
