@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
+import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 // import Home from "./views/Home";
 // import Movies from "./views/Movies";
 import NotFound from "./views/NotFound";
@@ -49,7 +49,7 @@ function App() {
           <Route exact path={routes.home} component={Home} />
           <Route path={routes.movieDetails} component={MovieDetails} />
           <Route path={routes.movies} component={Movies} />
-          {/* <Route component={NotFound} /> */}
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </div>
