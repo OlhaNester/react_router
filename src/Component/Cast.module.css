@@ -1,7 +1,7 @@
-.movie_list {
+.list {
   display: grid;
   max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 16px;
   margin-top: 0;
   margin-bottom: 0;
@@ -12,8 +12,8 @@
 }
 
 .thumb {
-  height: 300px;
-  width: 200px;
+  height: 225px;
+  width: 150px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -24,4 +24,13 @@
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+}
+
+.name {
+  font-family: Roboto, sans-serif;
+}
+
+.character {
+  font-size: 14px;
+  font-style: italic;
 }

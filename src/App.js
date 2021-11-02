@@ -28,7 +28,7 @@ function App() {
             className="NavLink"
             activeClassName="NavLink_active"
             exact
-            to={routes.home}
+            to="/"
           >
             Home
           </NavLink>
@@ -37,7 +37,7 @@ function App() {
           <NavLink
             className="NavLink"
             activeClassName="NavLink_active"
-            to={routes.movies}
+            to="/movies"
           >
             Movies
           </NavLink>
@@ -49,7 +49,7 @@ function App() {
           <Route exact path={routes.home} component={Home} />
           <Route path={routes.movieDetails} component={MovieDetails} />
           <Route path={routes.movies} component={Movies} />
-          <Route component={NotFound} />
+          {/* <Route component={NotFound} /> */}
         </Switch>
       </Suspense>
     </div>

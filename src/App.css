@@ -44,3 +44,6 @@
 .NavLink_active {
   color: red;
 }
+li {
+  list-style: none;
+}
