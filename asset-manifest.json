@@ -1,20 +1,28 @@
 {
   "files": {
-    "main.css": "/react_router/static/css/main.793f4bcb.chunk.css",
-    "main.js": "/react_router/static/js/main.e731041e.chunk.js",
-    "main.js.map": "/react_router/static/js/main.e731041e.chunk.js.map",
-    "runtime-main.js": "/react_router/static/js/runtime-main.a72c782c.js",
-    "runtime-main.js.map": "/react_router/static/js/runtime-main.a72c782c.js.map",
-    "static/js/2.ca772b62.chunk.js": "/react_router/static/js/2.ca772b62.chunk.js",
-    "static/js/2.ca772b62.chunk.js.map": "/react_router/static/js/2.ca772b62.chunk.js.map",
+    "static/js/0.f54844d8.chunk.js": "/react_router/static/js/0.f54844d8.chunk.js",
+    "static/js/0.f54844d8.chunk.js.map": "/react_router/static/js/0.f54844d8.chunk.js.map",
+    "home.js": "/react_router/static/js/home.146b5b7e.chunk.js",
+    "home.js.map": "/react_router/static/js/home.146b5b7e.chunk.js.map",
+    "main.css": "/react_router/static/css/main.edba3eea.chunk.css",
+    "main.js": "/react_router/static/js/main.c2cc12ef.chunk.js",
+    "main.js.map": "/react_router/static/js/main.c2cc12ef.chunk.js.map",
+    "movieDetails.js": "/react_router/static/js/movieDetails.1aa0bf51.chunk.js",
+    "movieDetails.js.map": "/react_router/static/js/movieDetails.1aa0bf51.chunk.js.map",
+    "movies.js": "/react_router/static/js/movies.3eeb6416.chunk.js",
+    "movies.js.map": "/react_router/static/js/movies.3eeb6416.chunk.js.map",
+    "runtime-main.js": "/react_router/static/js/runtime-main.b6576563.js",
+    "runtime-main.js.map": "/react_router/static/js/runtime-main.b6576563.js.map",
+    "static/js/6.ed3d7c3b.chunk.js": "/react_router/static/js/6.ed3d7c3b.chunk.js",
+    "static/js/6.ed3d7c3b.chunk.js.map": "/react_router/static/js/6.ed3d7c3b.chunk.js.map",
     "index.html": "/react_router/index.html",
-    "static/css/main.793f4bcb.chunk.css.map": "/react_router/static/css/main.793f4bcb.chunk.css.map",
-    "static/js/2.ca772b62.chunk.js.LICENSE.txt": "/react_router/static/js/2.ca772b62.chunk.js.LICENSE.txt"
+    "static/css/main.edba3eea.chunk.css.map": "/react_router/static/css/main.edba3eea.chunk.css.map",
+    "static/js/6.ed3d7c3b.chunk.js.LICENSE.txt": "/react_router/static/js/6.ed3d7c3b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a72c782c.js",
-    "static/js/2.ca772b62.chunk.js",
-    "static/css/main.793f4bcb.chunk.css",
-    "static/js/main.e731041e.chunk.js"
+    "static/js/runtime-main.b6576563.js",
+    "static/js/6.ed3d7c3b.chunk.js",
+    "static/css/main.edba3eea.chunk.css",
+    "static/js/main.c2cc12ef.chunk.js"
   ]
 }
