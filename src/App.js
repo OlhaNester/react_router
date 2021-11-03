@@ -1,8 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
+import Loader from 'react-loader-spinner';
 // import Home from "./views/Home";
 // import Movies from "./views/Movies";
-import NotFound from "./views/NotFound";
 import "./App.css";
 // import MovieDetails from "./views/MovieDetails";
 import routes from "./routes";
@@ -44,7 +44,7 @@ function App() {
         </li>
       </ul>
 
-      <Suspense fallback={<h3>Загружаем...</h3>}>
+      <Suspense fallback={<Loader type="TailSpin" color="#00BFFF" height={80} width={80}/>}>
         <Switch>
           <Route exact path={routes.home} component={Home} />
           <Route path={routes.movieDetails} component={MovieDetails} />
